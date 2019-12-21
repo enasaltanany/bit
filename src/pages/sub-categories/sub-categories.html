@@ -1,0 +1,31 @@
+<ion-content>
+  <ion-row>
+    <div class="back-ground">
+    </div>
+  </ion-row>
+
+
+  <!-- <ion-row> -->
+    <div padding>
+      <ion-segment [(ngModel)]="pet">
+        <ion-segment-button value="kittens">
+          Kittens
+        </ion-segment-button>
+        <ion-segment-button value="puppies">
+          Puppies
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div [ngSwitch]="pet">
+      <ion-list *ngSwitchCase="'puppies'">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="img/thumbnail-puppy-1.jpg">
+          </ion-thumbnail>
+          <h2>Ruby</h2>
+        </ion-item>
+        ...
+      </ion-list>
+    </div>
+  <!-- </ion-row> -->
+</ion-content>
