@@ -1,3 +1,21 @@
-page-home {
+   .sliders-container{
+     background: #F1F1F1;
+   }
+    .slider-image{
+        background-size: cover;
+        height: 50vh;
+    }
+    .basket-slider-image{
+        background-image: url('../../assets/imgs/basket.png');
+    }
+    .farm-slider-image{
+        background-image: url('../../assets/imgs/farm.png');
+    }
+    .transport-slider-image{
+        background-image: url('../../assets/imgs/transport.png');
+    }
+    .slider-description{
+        font-size: 14px;
+        padding: 0px 1%;
+    }
 
-}
