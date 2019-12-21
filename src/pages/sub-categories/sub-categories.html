@@ -7,25 +7,51 @@
 
   <!-- <ion-row> -->
     <div padding>
-      <ion-segment [(ngModel)]="pet">
-        <ion-segment-button value="kittens">
-          Kittens
+      <ion-segment [(ngModel)]="food">
+        <ion-segment-button value="meat">
+          Meats
         </ion-segment-button>
-        <ion-segment-button value="puppies">
-          Puppies
+        <ion-segment-button value="fish">
+          Fish
         </ion-segment-button>
       </ion-segment>
     </div>
-    <div [ngSwitch]="pet">
-      <ion-list *ngSwitchCase="'puppies'">
-        <ion-item>
-          <ion-thumbnail item-start>
-            <img src="img/thumbnail-puppy-1.jpg">
-          </ion-thumbnail>
-          <h2>Ruby</h2>
-        </ion-item>
-        ...
-      </ion-list>
+    <div [ngSwitch]="food">
+      <!-- Meat -->
+      <ion-row *ngSwitchCase=" 'meat'">
+        <ion-col col-6>
+          <img src="../../assets/imgs/meatone.jpg">
+        </ion-col>
+        <ion-col col-6>
+          <img src="../../assets/imgs/meatfive.jpg">
+          <ion-footer>
+            <h5 class="title">Grocery</h5>
+          </ion-footer>
+        </ion-col>
+        <ion-col col-6>
+          <img src="../../assets/imgs/meatthree.jpg">
+        </ion-col> <ion-col col-6>
+          <img src="../../assets/imgs/meatfour.jpg">
+        </ion-col>
+
+      </ion-row>
+      <!--Fish-->
+      <div *ngSwitchCase=" 'fish' ">
+  
+      </div>
     </div>
   <!-- </ion-row> -->
 </ion-content>
+        <!-- <ion-list *ngSwitchCase="'meat'">
+          <ion-item>
+            <ion-thumbnail item-start>
+            </ion-thumbnail>
+            <h2>Ruby</h2>
+          </ion-item>
+          <ion-item>
+            <ion-thumbnail item-start>
+              <img src="img/thumbnail-puppy-1.jpg">
+            </ion-thumbnail>
+            <h2>Ruby</h2>
+          </ion-item>
+        </ion-list> -->
