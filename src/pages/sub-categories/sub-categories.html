@@ -3,55 +3,59 @@
     <div class="back-ground">
     </div>
   </ion-row>
-
-
-  <!-- <ion-row> -->
     <div padding>
       <ion-segment [(ngModel)]="food">
-        <ion-segment-button value="meat">
+        <ion-segment-button value="Meats">
           Meats
         </ion-segment-button>
-        <ion-segment-button value="fish">
+        <ion-segment-button value="Seafood">
           Fish
         </ion-segment-button>
       </ion-segment>
     </div>
-    <div [ngSwitch]="food">
-      <!-- Meat -->
-      <ion-row *ngSwitchCase=" 'meat'">
-        <ion-col col-6>
-          <img src="../../assets/imgs/meatone.jpg">
-        </ion-col>
-        <ion-col col-6>
-          <img src="../../assets/imgs/meatfive.jpg">
-          <ion-footer>
-            <h5 class="title">Grocery</h5>
-          </ion-footer>
-        </ion-col>
-        <ion-col col-6>
-          <img src="../../assets/imgs/meatthree.jpg">
-        </ion-col> <ion-col col-6>
-          <img src="../../assets/imgs/meatfour.jpg">
-        </ion-col>
 
-      </ion-row>
-      <!--Fish-->
-      <div *ngSwitchCase=" 'fish' ">
-  
-      </div>
+    <!-- Meat -->
+    <div *ngIf="!loading" [ngSwitch]="food">
+       <div *ngFor="let singleCat of data">
+         <div *ngIf="singleCat.name == 'Meats'">
+           <ion-row *ngSwitchCase=" 'Meats'">
+             <div *ngFor="let products of singleCat.products">
+               <ion-col col-md-6 margin>
+                 {{products.name}}
+                 <img src='../../assets/imgs/meatfive.jpg'>
+                 <!-- <ion-img [src]="products.product_img"></ion-img> -->
+               </ion-col>
+             </div>
+           </ion-row>
+         </div>
+
+         <!-- fish -->
+         <div *ngIf="singleCat.name == 'Seafood'">
+          <ion-row *ngSwitchCase=" 'Seafood'">
+            <div *ngFor="let products of singleCat.products">
+              <ion-col col-6> 
+                {{products.name}}
+                <ion-img [src]="products.product_img"></ion-img>
+              </ion-col>
+            </div>
+          </ion-row>
+        </div>
+        </div>
     </div>
-  <!-- </ion-row> -->
+    <!-- 
+      
+       
+          <ion-row *ngSwitchCase=" 'Meats'">
+            <ion-col col-6>
+              {{category.name}}
+              <img src="../../assets/imgs/meatone.jpg">
+            </ion-col>
+          </ion-row>
+        </div>
+      </div> -->
+      <!--Fish-->
+      <!-- <div *ngSwitchCase=" 'fish' ">
+  
+      </div> -->
+    <!-- </div> -->
 </ion-content>
-        <!-- <ion-list *ngSwitchCase="'meat'">
-          <ion-item>
-            <ion-thumbnail item-start>
-            </ion-thumbnail>
-            <h2>Ruby</h2>
-          </ion-item>
-          <ion-item>
-            <ion-thumbnail item-start>
-              <img src="img/thumbnail-puppy-1.jpg">
-            </ion-thumbnail>
-            <h2>Ruby</h2>
-          </ion-item>
-        </ion-list> -->

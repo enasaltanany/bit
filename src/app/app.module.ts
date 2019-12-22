@@ -8,6 +8,11 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CategoriesPage} from "../pages/categories/categories";
 import { SubCategoriesPage } from "../pages/sub-categories/sub-categories";
+import { SubCategoryProvider } from '../providers/sub-category/sub-category';
+
+import { HttpClientModule } from '@angular/common/http'; 
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -18,6 +23,8 @@ import { SubCategoriesPage } from "../pages/sub-categories/sub-categories";
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,7 +36,8 @@ import { SubCategoriesPage } from "../pages/sub-categories/sub-categories";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SubCategoryProvider
   ]
 })
 export class AppModule {}
