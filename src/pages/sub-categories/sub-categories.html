@@ -3,59 +3,84 @@
     <div class="back-ground">
     </div>
   </ion-row>
-    <div padding>
-      <ion-segment [(ngModel)]="food">
-        <ion-segment-button value="Meats">
-          Meats
-        </ion-segment-button>
-        <ion-segment-button value="Seafood">
-          Fish
-        </ion-segment-button>
-      </ion-segment>
-    </div>
+  <div padding>
+    <ion-segment [(ngModel)]="food">
+      <ion-segment-button value="Meats">
+        Meats
+      </ion-segment-button>
+      <ion-segment-button value="Seafood">
+        Fish
+      </ion-segment-button>
+    </ion-segment>
+  </div>
 
-    <!-- Meat -->
-    <div *ngIf="!loading" [ngSwitch]="food">
-       <div *ngFor="let singleCat of data">
-         <div *ngIf="singleCat.name == 'Meats'">
-           <ion-row *ngSwitchCase=" 'Meats'">
-             <div *ngFor="let products of singleCat.products">
-               <ion-col col-md-6 margin>
-                 {{products.name}}
-                 <img src='../../assets/imgs/meatfive.jpg'>
-                 <!-- <ion-img [src]="products.product_img"></ion-img> -->
-               </ion-col>
-             </div>
-           </ion-row>
-         </div>
-
-         <!-- fish -->
-         <div *ngIf="singleCat.name == 'Seafood'">
-          <ion-row *ngSwitchCase=" 'Seafood'">
-            <div *ngFor="let products of singleCat.products">
-              <ion-col col-6> 
-                {{products.name}}
-                <ion-img [src]="products.product_img"></ion-img>
-              </ion-col>
-            </div>
-          </ion-row>
-        </div>
-        </div>
+  <!-- Cards -->
+  <div *ngIf="!loading" [ngSwitch]="food">
+    <div *ngFor="let singleCat of data">
+      <div *ngIf="singleCat.name == 'Meats'">
+        <ion-list *ngSwitchCase="'Meats'">
+          <div *ngFor="let product of singleCat.products">
+            <ion-card>
+              <img (click)="cardClicked(product);" [src]="product.product_img"/>
+              <ion-card-content class="col-md-6">
+                <ion-card-title>
+                  {{product.name}}
+                  </ion-card-title>
+                  <span class="block">
+                    {{product.weight}}
+                    </span>
+                    <span>
+                      {{product.price}}
+                    </span>
+                  <ion-buttons end (click)="toggleAdded()">
+                    <button class="icon-button" ion-button icon-end icon-only>
+                      <ion-icon [name]="added ? 'ios-add-circle-outline' : 'ios-checkmark-circle'"></ion-icon>
+                    </button>
+                  </ion-buttons>
+              </ion-card-content>
+            </ion-card>
+           </div>
+        </ion-list>
+      </div>
+      <div *ngIf="singleCat.name == 'Seafood'">
+        <ion-list *ngSwitchCase="'Seafood'">
+          <div *ngFor="let product of singleCat.products">
+            <ion-card>
+              <img (click)="cardClicked(product);" [src]="product.product_img"/>
+              <ion-card-content class="col-md-6">
+                <ion-card-title>
+                  {{product.name}}
+                  </ion-card-title>
+                  <span class="block">
+                    {{product.weight}}
+                    </span>
+                    <span>
+                      {{product.price}}
+                    </span>
+                  <ion-buttons end (click)="toggleAdded()">
+                    <button class="icon-button" ion-button icon-end icon-only>
+                      <ion-icon [name]="added ? 'ios-add-circle-outline' : 'ios-checkmark-circle'"></ion-icon>
+                    </button>
+                  </ion-buttons>
+              </ion-card-content>
+            </ion-card>
+           </div>
+        </ion-list>
+      </div>
     </div>
-    <!-- 
-      
-       
-          <ion-row *ngSwitchCase=" 'Meats'">
-            <ion-col col-6>
-              {{category.name}}
-              <img src="../../assets/imgs/meatone.jpg">
-            </ion-col>
-          </ion-row>
-        </div>
-      </div> -->
-      <!--Fish-->
-      <!-- <div *ngSwitchCase=" 'fish' ">
-  
-      </div> -->
-    <!-- </div> -->
+  </div>
 </ion-content>
+    <ion-footer>
+      <ion-row>
+        <ion-col  col-6>
+          <button class="footer-buttons">
+            Sort by
+          </button>
+        </ion-col>
+        <ion-col col-6>
+          <button class="footer-buttons">
+            Filter
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-footer>

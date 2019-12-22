@@ -9,7 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { CategoriesPage} from "../pages/categories/categories";
 import { SubCategoriesPage } from "../pages/sub-categories/sub-categories";
 import { SubCategoryProvider } from '../providers/sub-category/sub-category';
-
+import { DetailsPage  } from "../pages/details/details";
 import { HttpClientModule } from '@angular/common/http'; 
 
 
@@ -18,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     MyApp,
     HomePage,
     CategoriesPage,
-    SubCategoriesPage
+    SubCategoriesPage,
+    DetailsPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     MyApp,
     HomePage,
     CategoriesPage,
-    SubCategoriesPage
+    SubCategoriesPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,
